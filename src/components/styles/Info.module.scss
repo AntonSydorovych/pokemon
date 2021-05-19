@@ -1,0 +1,54 @@
+.item {
+    width: 180px;
+    height: 390px;
+    border: 1px solid black;
+
+    .picture {
+        width: 163px;
+        height: 128px;
+        border: 1px solid black;
+        margin: 7px;
+
+        img {
+            width: 163px;
+            height: 128px;
+        }
+    }
+    .nameWrapper {
+        margin: 10px auto;
+        display: flex;
+        justify-content: center;
+
+        .name {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+
+    .infoBox {
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        width: 162px;
+        height: 20px;
+        border: 1px solid black;
+        font-size: 11px;
+
+        .infoBoxLeft {
+            width: 120px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .infoBoxRight {
+            width: 40px;
+            height: 20px;
+            border-left: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

@@ -1,0 +1,40 @@
+.item {
+    width: 100px;
+    height: 160px;
+    border: 1px solid black;
+    margin: 10px 0;
+
+    .picture {
+        width: 84px;
+        height: 84px;
+        border: 1px solid black;
+        margin: 7px;
+
+        img {
+            width: 84px;
+            height: 84px;
+        }
+    }
+    .nameWrapper {
+        margin: auto;
+        display: flex;
+        justify-content: center;
+
+        .name {
+            font-size: 13px;
+            font-weight: bold;
+        }
+    }
+    .typeWrapper {
+        display: inline-block;
+        width: 95px;
+
+        .attackTypes {
+            border: 1px solid black;
+            font-size: 15px;
+            border-radius: 3px;
+            margin: 6px 0 0 5px;
+          //  background-color: rgb(156, 139, 139);
+        }
+    }
+}
