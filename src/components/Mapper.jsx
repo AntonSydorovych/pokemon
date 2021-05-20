@@ -35,24 +35,20 @@ let Mapper = (props) => {
         { type: 'unknown', color: 'white' }
     ]
 
-
     let mappedItems = props.items.map(item => {
-
         for (let i = 0; i < colorOfAttack.length; i++) {
             if (item.type_1 === colorOfAttack[i].type) {
                 item.color_1 = colorOfAttack[i].color;
             }
         }
-
         for (let i = 0; i < colorOfAttack.length; i++) {
             if (item.type_2 === colorOfAttack[i].type) {
                 item.color_2 = colorOfAttack[i].color;
             }
         }
 
-
         return (
-            <div className={styles.item} onClick={() => setPokemon(item.id)}>
+            <div className={styles.item} onClick={() => setPokemon(item.id)} key={item.id}>
                 <div className={styles.picture}><img src={item.picture} /></div>
                 <div className={styles.nameWrapper}>
                     <div className={styles.name}>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</div>
@@ -72,8 +68,6 @@ let Mapper = (props) => {
             </div>
         )
     })
-
     return mappedItems
 };
-
 export default Mapper;

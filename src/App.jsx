@@ -5,74 +5,47 @@ import styles from './app.module.scss';
 import Mapper from './components/Mapper';
 import Info from './components/Info';
 import PokeFilter from './components/PokeFilter';
-
+import LoadMoreButton from './components/LoadMoreButton';
+import typeExtractor from './functions/typeExtractor';
+import PageGenerator from './components/PageGenerator';
 
 function App() {
-
-  let [items, setItems] = useState(' ');
-  let [pokeInfo, setpokeInfo] = useState(' ');
-  let [pageNumber, setpageNumber] = useState(0);
+  const [items, setItems] = useState(' ');
+  const [pokeInfo, setpokeInfo] = useState(' ');
+  const [pageNumber, setpageNumber] = useState(0);
+  const [showFilteredList, setShowFilteredList] = useState(false);
+  const [currentPage, setcurrentPage] = useState(0);
+  const [pagesCount, setPagesCount] = useState(0);
+  const [pages, setPages] = useState(' ');
+  const pageSize = 12;
 
   useEffect(async () => {
     const result = await axios(
       `https://pokeapi.co/api/v2/pokemon/?offset=${pageNumber}&limit=12`,
     );
-
-    let items = result.data.results;
-
-    let itemsWithId = items.map(item => {
-      let numberEnd = item.url.length - 1;
-      let id = item.url.slice(34, numberEnd);
-      let picture = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`;
-
+    const items = result.data.results;
+    const itemsWithId = items.map(item => {
+      const numberEnd = item.url.length - 1;
+      const id = item.url.slice(34, numberEnd);
+      const picture = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`;
       return { ...item, id, picture }
     })
-
-
-    let readyPokemons = [];
-    let promises = [];
-
-    for (let i = 0; i < 12; i++) {
-
-      promises.push(
-        axios.get(`https://pokeapi.co/api/v2/pokemon/${itemsWithId[i].id}/`).then(response => {
-          let types = response.data.types;
-          let type_1;
-          let type_2;
-          if(types.length === 1){
-           type_1 = types[0].type.name;
-           type_2 = 'absent';
-          }
-
-          if(types.length === 2){
-            type_1 = types[0].type.name;
-            type_2 = types[1].type.name;
-           }
-
-           itemsWithId[i] = {...itemsWithId[i], type_1, type_2}
-
-          readyPokemons.push(itemsWithId[i]);
-        })
-      )
-    }
-
-    Promise.all(promises).then(() => setItems(readyPokemons.sort(function (a, b) {
-          if (+a.id > +b.id) {
-            return 1;
-          }
-          if (+a.id < +b.id) {
-            return -1;
-          }
-          // a должно быть равным b
-          return 0;
-        })));
-
+    typeExtractor(itemsWithId, setItems);
   }, [pageNumber]);
 
+  useEffect(() => {
+    let pagesArray = [];
+    for (let i = 1; i <= pagesCount; i++) {
+      pagesArray.push(i)
+    }
+    setPages(pagesArray)
+  }, [pagesCount]);
 
   async function pokemonFilter(typeId) {
     const result = await axios(`https://pokeapi.co/api/v2/type/${typeId}/`);
     const data = result.data.pokemon;
+
+    setPagesCount(Math.ceil(data.length / pageSize));
 
     const pokemonsForRender = await data.map(item => {
       let numberEnd = item.pokemon.url.length - 1;
@@ -80,62 +53,21 @@ function App() {
       let picture = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`;
       return { ...item.pokemon, id, picture }
     })
-
-
-let readyPokemons = [];
-let promises = [];
-
-for (let i = 0; i < pokemonsForRender.length; i++) {
-  promises.push(
-    axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonsForRender[i].id}/`).then(response => {
-      // do something with response
-      let types = response.data.types;
-      let type_1;
-      let type_2;
-      if(types.length === 1){
-       type_1 = types[0].type.name;
-       type_2 = 'absent';
-      }
-
-      if(types.length === 2){
-        type_1 = types[0].type.name;
-        type_2 = types[1].type.name;
-       }
-
-       pokemonsForRender[i] = {...pokemonsForRender[i], type_1, type_2}
-
-      readyPokemons.push(pokemonsForRender[i]);
-    })
-  )
-}
-
-Promise.all(promises).then(() => setItems(readyPokemons.sort(function (a, b) {
-      if (+a.id > +b.id) {
-        return 1;
-      }
-      if (+a.id < +b.id) {
-        return -1;
-      }
-      // a должно быть равным b
-      return 0;
-    })));
-  }
-
+    typeExtractor(pokemonsForRender, setItems);
+    setShowFilteredList(true);
+    setcurrentPage(1);
+  };
 
   async function showPokemon(id) {
     const result = await axios(
       `https://pokeapi.co/api/v2/pokemon/${id}`,
     );
     let data = result.data;
-
-    let types = data.types.map(item => item.type.name);
-
-    let soloPokemon = {
+    const soloPokemon = {
       picture: `https://pokeres.bastionbot.org/images/pokemon/${id}.png`,
       name: data.name,
       number: '# ' + data.id,
       id: data.id,
-      //      type: data.types[0].type.name,
       type: data.types[0].type.name,
       attack: data.stats[1].base_stat,
       defense: data.stats[2].base_stat,
@@ -149,8 +81,12 @@ Promise.all(promises).then(() => setItems(readyPokemons.sort(function (a, b) {
     setpokeInfo(soloPokemon);
   }
 
-  let loadMore = () => {
+  const loadMore = () => {
     setpageNumber(pageNumber + 12)
+  }
+
+  const switchPage = async(numberOfPage) =>{
+    setcurrentPage(numberOfPage);
   }
 
   return (
@@ -164,15 +100,23 @@ Promise.all(promises).then(() => setItems(readyPokemons.sort(function (a, b) {
           </div>
           <div className={styles.contentWrapper}>
             <div className={styles.content}>
-
               <div className={styles.listWrapper}>
-                <div className={styles.pokemonList}>
-                  <Mapper setPokemon={showPokemon} items={items} />
-                </div>
-                <div className={styles.button} onClick={() => loadMore()}>
-                  Load More
-                </div>
-              </div>
+                {showFilteredList ?
+                  <div>
+                    <div className={styles.pokemonList}>
+                      <Mapper setPokemon={showPokemon} 
+                      items={items.slice((currentPage - 1) * pageSize, currentPage * pageSize)} />
+                    </div>
+                    <PageGenerator pages={pages} currentPage={currentPage}
+                      setcurrentPage={switchPage} />
+                  </div>
+                  : <div>
+                    <div className={styles.pokemonList}>
+                      <Mapper setPokemon={showPokemon} items={items} />
+                    </div>
+                    <LoadMoreButton loadMore={loadMore} />
+                  </div>
+                }</div>
               <div className={styles.pokeFilter}>
                 <PokeFilter filter={pokemonFilter} />
               </div>

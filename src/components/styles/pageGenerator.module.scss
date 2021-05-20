@@ -1,0 +1,20 @@
+.generator {
+    display: flex;
+    flex-direction: row;
+    .page {
+        width: 15px;
+        border: 1px solid black;
+        margin-right: 6px;
+        text-align: center;
+        //margin: auto;
+    }
+
+    .currentPage{
+        width: 15px;
+        border: 1px solid black;
+        margin-right: 6px;
+        text-align: center;
+        color: white;
+        background: black;
+    }
+}
