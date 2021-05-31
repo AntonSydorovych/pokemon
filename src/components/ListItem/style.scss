@@ -1,0 +1,49 @@
+li.ListItem {
+    display: block;
+    scroll-snap-align: start;
+
+    &:nth-child(odd) {
+        background: #00000005;
+    }
+
+    // &.ListItem__selected {
+    //     background: #bfbfbf;
+    //     position: sticky;
+    //     top: calc(-0.5em - 1px);
+    //     bottom: calc(-0.5em - 1px);
+    // }
+
+    a.ListItem_link {
+        display: block;
+        text-transform: capitalize;
+        text-decoration: none;
+        padding: 0.2em 0.5em;
+        color: black;
+        font-size: 1.1em;
+        outline: none;
+        cursor: pointer;
+
+        input.ListItem_checkbox {
+            height: 1.3em;
+            margin-right: 1.3em;
+        }
+
+        &:hover {
+            background: #2196f3;
+            color: white;
+        }
+    }
+}
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+    li.ListItem {
+    
+        a.ListItem_link {
+    
+            input.ListItem_checkbox {
+                display: none;
+            }
+        }
+    }
+}

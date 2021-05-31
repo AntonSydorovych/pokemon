@@ -1,96 +1,96 @@
-.mainWrapper {
-    width: 1920px;
-//    background: rgb(59, 25, 2);
+// .mainWrapper {
+//     width: 1920px;
+// //    background: rgb(59, 25, 2);
 
-    .appWrapper {
-        width: 820px;
-        margin: auto;
-//        background: gray;
+//     .appWrapper {
+//         width: 820px;
+//         margin: auto;
+// //        background: gray;
 
-        .app {
-            width: 560px;
-            padding: 50px 0;
-            margin: auto;
+//         .app {
+//             width: 560px;
+//             padding: 50px 0;
+//             margin: auto;
 
-            .headerWrapper {
-                display: flex;
-                justify-content: center;
-                width: 375px;
-                height: 50px;
-                margin: 0 0 0 136px;
-                border: 1px solid black;
+//             .headerWrapper {
+//                 display: flex;
+//                 justify-content: center;
+//                 width: 375px;
+//                 height: 50px;
+//                 margin: 0 0 0 136px;
+//                 border: 1px solid black;
 
-                .header {
-                    margin: auto;
-                    font-size: 28px;
-                    font-weight: bold;
-                }
-            }
+//                 .header {
+//                     margin: auto;
+//                     font-size: 28px;
+//                     font-weight: bold;
+//                 }
+//             }
 
-            .content {
-                margin: auto;
-                display: flex;
-                flex-direction: row;
-                justify-content: space-evenly;
+//             .content {
+//                 margin: auto;
+//                 display: flex;
+//                 flex-direction: row;
+//                 justify-content: space-evenly;
 
-                .listWrapper {
-                    .pokemonList {
-                        width: 340px;
-                        display: flex;
-                        justify-content: space-between;
-                        flex-wrap: wrap;
-                        margin-top: 10px;
-                    }
-                }
+//                 .listWrapper {
+//                     .pokemonList {
+//                         width: 340px;
+//                         display: flex;
+//                         justify-content: space-between;
+//                         flex-wrap: wrap;
+//                         margin-top: 10px;
+//                     }
+//                 }
 
-                .pokeFilter{
-                    height: 30px;
-                    width: 150px;
-                    border: 1px solid black;
-                    margin-left: 314px;
-                    position: absolute;
-                }
+//                 .pokeFilter{
+//                     height: 30px;
+//                     width: 150px;
+//                     border: 1px solid black;
+//                     margin-left: 314px;
+//                     position: absolute;
+//                 }
 
-                .pokemonInfo {
-                    width: 180px;
-                    height: 385px;
-                    margin: 140px 0 0 27px;
+//                 .pokemonInfo {
+//                     width: 180px;
+//                     height: 385px;
+//                     margin: 140px 0 0 27px;
 
-                }
-            }
-        }
-    }
-}
+//                 }
+//             }
+//         }
+//     }
+// }
 
-/*
+// /*
 
-.body {
-    width: 1920px;
-    height: 900px;
-    background: gray;
+// .body {
+//     width: 1920px;
+//     height: 900px;
+//     background: gray;
 
-    .appWrapper {
-        width: 560px;
-        height: 830px;
-        background: rgb(194, 16, 16);
+//     .appWrapper {
+//         width: 560px;
+//         height: 830px;
+//         background: rgb(194, 16, 16);
 
-        .app {
-            .headerWrapper {
-                .header {
-                }
-            }
+//         .app {
+//             .headerWrapper {
+//                 .header {
+//                 }
+//             }
 
-            .contentWrapper {
-                .content {
-                    .pokemonList {
-                    }
+//             .contentWrapper {
+//                 .content {
+//                     .pokemonList {
+//                     }
 
-                    .pokemonInfo {
-                    }
-                }
-            }
-        }
-    }
-}
+//                     .pokemonInfo {
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
 
-*/
+// */

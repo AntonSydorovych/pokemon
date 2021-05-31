@@ -1,32 +1,62 @@
 import React from 'react';
-import styles from './styles/pokefilter.module.scss';
+//import styles from './styles/pokefilter.module.scss';
 
-let PokeFilter = (props) => {
-    return (
-        <div className={styles.filter}>
-            <select onChange={(e) => { props.filter(e.target.value) }}>
-                <option value="1">normal</option>
-                <option value="2">fighting</option>
-                <option value="3">flying</option>
-                <option value="4">poison</option>
-                <option value="5">ground</option>
-                <option value="6">rock</option>
-                <option value="7">bug</option>
-                <option value="8">ghost</option>
-                <option value="9">steel</option>
-                <option value="10">fire</option>
-                <option value="11">water</option>
-                <option value="12">grass</option>
-                <option value="13">electric</option>
-                <option value="14">psychic</option>
-                <option value="15">ice</option>
-                <option value="16">dragon</option>
-                <option value="17">dark</option>
-                <option value="18">fairy</option>
-                
-            </select>
-        </div>
-    )
+import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+
+const useStyles = makeStyles((theme) => ({
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
+}));
+
+export default function SimpleSelect(props) {
+  const classes = useStyles();
+  const [attackType, setAttackType] = React.useState('');
+
+  const handleChange = (event) => {
+    setAttackType(event.target.value);
+    props.filter(event.target.value);
+  };
+
+  return (
+    <div>
+      <FormControl className={classes.formControl}>
+        <InputLabel id="demo-simple-select-label">Attack Types</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={attackType}
+          onChange={handleChange}
+        >
+          <MenuItem  value="1">normal</MenuItem>
+          <MenuItem  value="2">fighting</MenuItem>
+          <MenuItem  value="3">flying</MenuItem>
+          <MenuItem  value="4">poison</MenuItem>
+          <MenuItem  value="5">ground</MenuItem>
+          <MenuItem  value="6">rock</MenuItem>
+          <MenuItem value="7">bug</MenuItem>
+          <MenuItem value="8">ghost</MenuItem>
+          <MenuItem value="9">steel</MenuItem>
+          <MenuItem value="10">fire</MenuItem>
+          <MenuItem value="11">water</MenuItem>
+          <MenuItem value="12">grass</MenuItem>
+          <MenuItem value="13">electric</MenuItem>
+          <MenuItem value="14">psychic</MenuItem>
+          <MenuItem value="15">ice</MenuItem>
+          <MenuItem value="16">dragon</MenuItem>
+          <MenuItem value="17">dark</MenuItem>
+          <MenuItem value="18">fairy</MenuItem>
+        </Select>
+      </FormControl>
+    </div>
+  );
 }
 
-export default PokeFilter;

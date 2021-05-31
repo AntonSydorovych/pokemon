@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-export default function typeExtractor(array, setItems) {
+export const  typeExtractor = (array) => {
     let readyPokemons = [];
     let promises = [];
     for (let i = 0; i < array.length; i++) {
@@ -24,7 +24,7 @@ export default function typeExtractor(array, setItems) {
       )
     }
 
-    Promise.all(promises).then(() => setItems(readyPokemons.sort(function (a, b) {
+  return   Promise.all(promises).then(() =>  readyPokemons.sort(function (a, b) {
       if (+a.id > +b.id) {
         return 1;
       }
@@ -32,5 +32,5 @@ export default function typeExtractor(array, setItems) {
         return -1;
       }
       return 0;
-    })));
+    }));
   }

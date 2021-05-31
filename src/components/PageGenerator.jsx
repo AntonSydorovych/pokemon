@@ -2,8 +2,7 @@ import React from 'react';
 import styles from './styles/pageGenerator.module.scss'
 
 const PageGenerator = (props) => {
-
-    const setcurrentPage = (pageNumber) => {
+const setcurrentPage = (pageNumber) => {
         props.setcurrentPage(pageNumber);
     }
 
@@ -13,6 +12,7 @@ const PageGenerator = (props) => {
         }
         return <div className={styles.page} onClick={() => setcurrentPage(page)}>{page}</div>
     })
+
     return (
         <div className={styles.generator}>
             {mappedPages}
