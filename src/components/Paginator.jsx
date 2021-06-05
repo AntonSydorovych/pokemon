@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './styles/pageGenerator.module.scss'
+import styles from './styles/Paginator.module.scss'
 
-const PageGenerator = (props) => {
+const Paginator = (props) => {
 const setcurrentPage = (pageNumber) => {
         props.setcurrentPage(pageNumber);
     }
@@ -20,4 +20,4 @@ const setcurrentPage = (pageNumber) => {
     )
 }
 
-export default PageGenerator;
+export default Paginator;

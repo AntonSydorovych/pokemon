@@ -13,7 +13,7 @@ let Info = (props) => {
         <div className={styles.item} >
             <div className={styles.picture}><img src={item.picture}/></div>
             <div className={styles.nameWrapper}>
-                <div className={styles.name}>{`${item.name} # ${item.id}`}</div>
+                <div className={styles.name}>{`${item.name.charAt(0).toUpperCase() + item.name.slice(1)} # ${item.id}`}</div>
             </div>
             <div className={styles.infoBox}>
                 <div className={styles.infoBoxLeft}>Type</div>
@@ -47,7 +47,7 @@ let Info = (props) => {
                 <div className={styles.infoBoxLeft}>Weight</div>
                 <div className={styles.infoBoxRight}>{item.weight}</div>
             </div>
-            <div className={styles.infoBox}>
+            <div className={styles.lastInfoBox}>
                 <div className={styles.infoBoxLeft}>Total Moves</div>
                 <div className={styles.infoBoxRight}>{item.totalMoves}</div>
             </div>

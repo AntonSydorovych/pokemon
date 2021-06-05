@@ -5,7 +5,7 @@ import { actionTypes } from './actionTypes';
 
 const initialState = {
     items: ' ',
-    pokeInfo: ' ',
+    pokemonInfo: ' ',
     pageNumber: 0,
     showFilteredList: false,
     currentPage: 0,
@@ -26,7 +26,7 @@ export const reducer = (state = initialState, action) => {
         case actionTypes.SET_SOLO_POKEMON:
             return {
                 ...state,
-                pokeInfo: action.payload
+                pokemonInfo: action.payload
             }
 
         case actionTypes.SET_PAGES_COUNT:

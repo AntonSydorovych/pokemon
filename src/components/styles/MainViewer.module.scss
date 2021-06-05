@@ -1,92 +1,85 @@
-.mainWrapper {
-    width: 100%;
-//    width: 1920px;
-//    background: rgb(59, 25, 2);
-
-    .appWrapper {
-        width: 820px;
+body {
+    background: rgb(90, 90, 90);
+    .app {
+        max-width: 580px;
+        height: 160px;
+        padding: 50px 0;
         margin: auto;
-//        background: gray;
-
-        .app {
-            width: 560px;
-            padding: 50px 0;
+        .headerWrapper {
+            display: flex;
+            justify-content: center;
+            max-width: 565px;
+            height: 60px;
             margin: auto;
-
-            .headerWrapper {
-                display: flex;
-                justify-content: center;
-                width: 375px;
-                height: 50px;
-                margin: 0 0 0 136px;
-                border: 1px solid black;
-
-                .header {
-                    margin: auto;
-                    font-size: 28px;
-                    font-weight: bold;
-                }
-            }
-
-            .content {
+            margin-right: 33px;
+            color: rgb(0, 0, 0);
+            background: rgb(255, 255, 255);
+            border-radius: 20px;
+            box-shadow: 5px 5px 5px black;
+            cursor: pointer; 
+            .header {
+                margin-right: 5px;
                 margin: auto;
+                font-size: 34px;
+                font-weight: bold;
+            }
+        }
+
+        .content {
+            display: flex;
+            .pokemonList {
+                max-width: 340px;
                 display: flex;
-                flex-direction: row;
-                justify-content: space-evenly;
-
-                .listWrapper {
-                    .pokemonList {
-                        width: 340px;
-                        display: flex;
-                        justify-content: space-between;
-                        flex-wrap: wrap;
-                        margin-top: 10px;
-                    }
-                }
-
-                .pokeFilter{
-                    height: 30px;
-                    width: 150px;
-                //    border: 1px solid black;
-                    margin-left: 357px;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                margin-top: 10px;
+            }
+            .pageWrapper{
+            //    height: 25px;
+            }
+            .infoWrapper {
+                .typeFilter {
+                    margin-left: 28px;
+                    margin-top: 20px;
                     position: absolute;
                 }
-
                 .pokemonInfo {
-                    width: 180px;
-                    height: 385px;
-                    margin: 140px 0 0 27px;
-
+                    margin: 202px 0 0 27px;
                 }
             }
         }
     }
-}
 
-/*
-
-.body {
-    width: 1920px;
-    height: 900px;
-    background: gray;
-
-    .appWrapper {
-        width: 560px;
-        height: 830px;
-        background: rgb(194, 16, 16);
-
+    @media (max-width: 1000px) {
         .app {
             .headerWrapper {
-                .header {
-                }
+                max-width: 95%;
+                margin-right: 41px;
             }
-
-            .contentWrapper {
-                .content {
-                    .pokemonList {
+            max-width: 720px;
+            .content {
+                .pokemonList {
+                    max-width: 420px;
+                }
+                .pageWrapper{
+                    display: none;
+                }
+                .button {
+                    display: none;
+                }
+                .infoWrapper {
+                    margin-left: 430px;
+                    margin-top: 0;
+                    position: fixed;
+                    .typeFilter {
+                        width: 220px;
                     }
-
                     .pokemonInfo {
+                        margin: 150px 0 0 27px;
+                    }
+                    .mobilePageWrapper {
+                        margin: 650px auto;
+                        height: 100px;
                     }
                 }
             }
@@ -94,4 +87,8 @@
     }
 }
 
-*/
+@media (min-width: 1000px) {
+    .mobilePageWrapper {
+        display: none;
+    }
+}

@@ -1,41 +1,57 @@
 .item {
     width: 100px;
     height: 160px;
-    border: 1px solid black;
+//    border: 1px solid black;
     margin: 10px 0;
     justify-content: center;
     text-align: center;
-
+    background: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px black;
     .picture {
         width: 84px;
         height: 84px;
-        border: 1px solid black;
+      //  border: 1px solid black;
         margin: 7px;
-
-        img {
-            width: 84px;
-            height: 84px;
-        }
     }
-    .nameWrapper {
-        margin: auto;
-        display: flex;
-        justify-content: center;
-
-        .name {
-            font-size: 13px;
-            font-weight: bold;
-        }
+    .name {
+        font-size: 13px;
+        font-weight: bold;
     }
     .typeWrapper {
         display: inline-block;
         width: 95px;
-
+        margin-top: 10px;
         .attackTypes {
-            border: 1px solid black;
+          //  border: 1px solid black;
             font-size: 13px;
             border-radius: 3px;
-            margin: 6px 3px 0 5px;
+            margin: 2px 2px 0 2px;
+            padding: 1px;
+            box-shadow: 2px 2px 2px black;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .item {
+        width: 200px;
+        height: 270px;
+        .picture {
+            width: 185px;
+            height: 170px;
+        }
+        .name {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .typeWrapper {
+            width: 145px;
+            height: 20px;
+            margin-top: 8px;
+            .attackTypes {
+                font-size: 22px;
+            }
         }
     }
 }

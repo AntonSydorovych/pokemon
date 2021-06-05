@@ -1,12 +1,12 @@
 .item {
     width: 180px;
     height: 390px;
-    border: 1px solid black;
-
+    background: white;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px black;
     .picture {
         width: 163px;
         height: 128px;
-        border: 1px solid black;
         margin: 7px;
 
         img {
@@ -28,11 +28,14 @@
     .infoBox {
         display: flex;
         flex-direction: row;
-        margin: auto;
+        margin:  4px auto;
+        border-radius: 5px;
         width: 162px;
         height: 20px;
-        border: 1px solid black;
-        font-size: 11px;
+      //  border: 1px solid black;
+        font-size: 13px;
+        font-weight: bold;
+        box-shadow: 2px 2px 2px black;
 
         .infoBoxLeft {
             width: 120px;
@@ -45,10 +48,130 @@
         .infoBoxRight {
             width: 40px;
             height: 20px;
-            border-left: 1px solid black;
+          //  border-left: 1px solid black;
             display: flex;
             justify-content: center;
             align-items: center;
         }
+    }
+    .lastInfoBox {
+        display: flex;
+        flex-direction: row;
+        margin:  4px auto;
+        border-radius: 5px;
+        width: 162px;
+        height: 20px;
+      //  border: 1px solid black;
+        font-size: 13px;
+        font-weight: bold;
+        box-shadow: 2px 2px 2px black;
+
+        .infoBoxLeft {
+            width: 120px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .infoBoxRight {
+            width: 40px;
+            height: 20px;
+          //  border-left: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .item {
+        width: 220px;
+        height: 485px;
+        border: 1px solid black;
+        position:  fixed;
+
+        .picture {
+            width: 205px;
+            height: 200px;
+          //  border: 1px solid black;
+            margin: 7px;
+
+            img {
+                width: 205px;
+                height: 200px;
+            }
+        }
+        .nameWrapper {
+            margin: 10px auto;
+            display: flex;
+            justify-content: center;
+
+            .name {
+                font-size: 24px;
+                font-weight: bold;
+            }
+        }
+
+        .infoBox {
+            display: flex;
+            flex-direction: row;
+            width: auto;
+            height: 22px;
+            border: none;
+          //  border-top: 1px solid #000;
+            font-size: 16px;
+            font-weight: bold;
+
+            .infoBoxLeft {
+                width: 120px;
+                height: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .infoBoxRight {
+                width: 40px;
+                height: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: auto;
+                padding-left: 30px;
+            }
+        }
+        .lastInfoBox{
+            display: flex;
+            flex-direction: row;
+            width: auto;
+            height: 22px;
+            border: none;
+          //  border-top: 1px solid #000;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: none;
+
+            .infoBoxLeft {
+                width: 120px;
+                height: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .infoBoxRight {
+                width: 40px;
+                height: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: auto;
+                padding-left: 30px;
+                
+            }
+        }
+
     }
 }

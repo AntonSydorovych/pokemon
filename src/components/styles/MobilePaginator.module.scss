@@ -1,0 +1,75 @@
+.generator {
+    margin-left: 27px;
+    display: flex;
+    .prevPage {
+        width: 80px;
+        text-align: center;
+        justify-content: center;
+        margin: auto;
+        background: white;
+        img {
+            width: 80px;
+            transform: rotate(180deg);
+        }
+    }
+    .nextPage {
+        width: 80px;
+        text-align: center;
+        justify-content: center;
+        margin-right: 15px;
+        background: white;
+        img {
+            width: 80px;
+        }
+    }
+
+    .currentPage {
+        width: 57px;
+        border: 1px solid black;
+        text-align: center;
+        color: white;
+        background: black;
+        font-size: 70px;
+    }
+}
+
+.button {
+    width: 220px;
+    margin-left: 27px;
+}
+
+@media (min-width: 1000px) {
+    .generator {
+        margin: auto;
+        height: 50px;
+        justify-content: space-between;
+        .prevPage {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            justify-content: center;
+            margin: auto;
+            background: white;
+            img {
+                width: 50px;
+                height: 50px;
+                transform: rotate(180deg);
+            }
+        }
+        .nextPage {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            justify-content: center;
+            margin: auto;
+            background: white;
+            img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+        .currentPage {
+            font-size: 40px;
+        }
+    }
+}

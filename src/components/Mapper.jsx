@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './styles/Mapper.module.scss';
-import ListItem from './ListItem/ListItem';
 
 let Mapper = (props) => {
 
@@ -47,10 +46,7 @@ let Mapper = (props) => {
                 item.color_2 = colorOfAttack[i].color;
             }
         }
-
         return (
-            //           <ListItem pokemon = {item}/>
-
             <div className={styles.item} onClick={() => setPokemon(item.id)} key={item.id}>
                 <img className={styles.picture} src={item.picture} />
                 <div className={styles.name}>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</div>
@@ -69,7 +65,6 @@ let Mapper = (props) => {
             </div>
         )
     })
-    
 };
 export default Mapper;
 

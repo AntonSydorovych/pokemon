@@ -1,20 +1,33 @@
 .generator {
     display: flex;
     flex-direction: row;
+    font-size: 26px;
+    
     .page {
-        width: 15px;
+        width: 25px;
+        height: 30px;
         border: 1px solid black;
         margin-right: 6px;
         text-align: center;
-        //margin: auto;
+        justify-content: center;
+        margin: auto;
+        background: white;
+        border-radius: 10px;
     }
 
     .currentPage{
-        width: 15px;
+        width: 25px;
         border: 1px solid black;
         margin-right: 6px;
         text-align: center;
         color: white;
         background: black;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .generator {
+        display: none;
     }
 }
